@@ -1,0 +1,28 @@
+DopaSE Diagnostics 1.2 for iPhone SE 2020 / 26.1 (23B85)
+==========================================================
+Prepared: 2026-11-12
+
+WHAT IS INCLUDED
+- Complete SwiftUI source code and read-only diagnostics implementation
+- Pre-generated native Xcode project (.xcodeproj), shared build scheme
+- GitHub Actions workflow for compiling iOS .app and packaging unsigned IPA
+- Pure-Swift and Python verification tests
+- Russian setup instructions
+
+CHECKS COMPLETED IN CURRENT LINUX ENVIRONMENT
+- Swift 6.2.1: 12 core checks passed and all Swift sources parsed
+- Python: 13 unittest cases passed
+- .pbxproj: plutil syntax validation passed
+- shell scripts: bash -n passed
+- GitHub Actions YAML parsing passed
+- local compatibility check: iPhone12,8 / 26.1 / 23B85 => unsupported
+
+NOT PERFORMED
+- xcodebuild compilation for iOS (Xcode and iOS SDK unavailable here)
+- Code signing for device
+- IPA generation
+- Real-device installation / run
+
+NOT A JAILBREAK
+This app DOES NOT jailbreak iOS 26.1. Dopamine does NOT currently declare
+support for final 23B85 in published metadata for iPhone SE 2020 A13.
