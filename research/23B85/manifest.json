@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-11-12",
+  "target": {
+    "machine": "iPhone12,8",
+    "chip": "A13",
+    "ios": "26.1",
+    "build": "23B85"
+  },
+  "upstream": {
+    "project": "opa334/Dopamine",
+    "branch": "3.x",
+    "supported": false,
+    "supportedBetas": [
+      "23B5044l",
+      "23B5059e",
+      "23B5064e"
+    ]
+  },
+  "research": {
+    "candidateExists": true,
+    "candidateName": "clipwire",
+    "candidateType": "unverified third-party development harness",
+    "primaryDocumentedDevice": "iPhone12,1",
+    "validatedOnTarget": false,
+    "kernelPrimitiveValidated": false,
+    "bootstrapValidated": false
+  },
+  "release": {
+    "jailbreakReady": false,
+    "deviceExecutionEnabled": false,
+    "releaseAllowed": false,
+    "reason": "No independently confirmed exploit chain for iPhone12,8 on 23B85"
+  },
+  "references": [
+    "https://github.com/opa334/Dopamine",
+    "https://support.apple.com/en-us/125632"
+  ]
+}
