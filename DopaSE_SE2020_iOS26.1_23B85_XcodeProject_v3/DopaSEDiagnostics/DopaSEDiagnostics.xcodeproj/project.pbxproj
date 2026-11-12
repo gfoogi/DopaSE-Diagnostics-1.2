@@ -1,0 +1,79 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+/* Begin PBXBuildFile section */
+		CE202600000000000000000C /* DopaSEDiagnosticsApp.swift in Sources */ = { isa = PBXBuildFile; fileRef = CE2026000000000000000007 /* DopaSEDiagnosticsApp.swift */; };
+		CE202600000000000000000D /* ContentView.swift in Sources */ = { isa = PBXBuildFile; fileRef = CE2026000000000000000008 /* ContentView.swift */; };
+		CE202600000000000000000E /* DeviceProfile.swift in Sources */ = { isa = PBXBuildFile; fileRef = CE2026000000000000000009 /* DeviceProfile.swift */; };
+		CE202600000000000000000F /* Compatibility.swift in Sources */ = { isa = PBXBuildFile; fileRef = CE202600000000000000000A /* Compatibility.swift */; };
+		CE2026000000000000000010 /* compatibility.json in Resources */ = { isa = PBXBuildFile; fileRef = CE202600000000000000000B /* compatibility.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE2026000000000000000006 /* DopaSEDiagnostics.app */ = { isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DopaSEDiagnostics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2026000000000000000007 /* DopaSEDiagnosticsApp.swift */ = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DopaSEDiagnosticsApp.swift; sourceTree = "<group>"; };
+		CE2026000000000000000008 /* ContentView.swift */ = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE2026000000000000000009 /* DeviceProfile.swift */ = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceProfile.swift; sourceTree = "<group>"; };
+		CE202600000000000000000A /* Compatibility.swift */ = { isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compatibility.swift; sourceTree = "<group>"; };
+		CE202600000000000000000B /* compatibility.json */ = { isa = PBXFileReference; lastKnownFileType = text.json; path = compatibility.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE2026000000000000000013 /* Frameworks */ = { isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE2026000000000000000002 /* Main Group */ = { isa = PBXGroup; children = (CE2026000000000000000003 /* Sources */, CE2026000000000000000004 /* Resources */, CE2026000000000000000005 /* Products */, ); sourceTree = "<group>"; };
+		CE2026000000000000000003 /* Sources */ = { isa = PBXGroup; children = (CE2026000000000000000007 /* DopaSEDiagnosticsApp.swift */, CE2026000000000000000008 /* ContentView.swift */, CE2026000000000000000009 /* DeviceProfile.swift */, CE202600000000000000000A /* Compatibility.swift */, ); path = Sources; sourceTree = "<group>"; };
+		CE2026000000000000000004 /* Resources */ = { isa = PBXGroup; children = (CE202600000000000000000B /* compatibility.json */, ); path = Resources; sourceTree = "<group>"; };
+		CE2026000000000000000005 /* Products */ = { isa = PBXGroup; children = (CE2026000000000000000006 /* DopaSEDiagnostics.app */, ); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CE2026000000000000000014 /* DopaSEDiagnostics */ = { isa = PBXNativeTarget;
+ buildConfigurationList = CE2026000000000000000016 /* Build configuration list for PBXNativeTarget "DopaSEDiagnostics" */;
+ buildPhases = (CE2026000000000000000011 /* Sources */, CE2026000000000000000013 /* Frameworks */, CE2026000000000000000012 /* Resources */, );
+ buildRules = (); dependencies = (); name = DopaSEDiagnostics; productName = DopaSEDiagnostics;
+ productReference = CE2026000000000000000006 /* DopaSEDiagnostics.app */; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE2026000000000000000001 /* Project object */ = { isa = PBXProject;
+ attributes = { BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 1600; TargetAttributes = { CE2026000000000000000014 = { CreatedOnToolsVersion = 16.0; }; }; };
+ buildConfigurationList = CE2026000000000000000015 /* Build configuration list for PBXProject "DopaSEDiagnostics" */;
+ compatibilityVersion = "Xcode 14.0";
+ developmentRegion = en;
+ hasScannedForEncodings = 0;
+ knownRegions = (en, Base, );
+ mainGroup = CE2026000000000000000002 /* Main Group */;
+ productRefGroup = CE2026000000000000000005 /* Products */;
+ projectDirPath = ""; projectRoot = "";
+ targets = (CE2026000000000000000014 /* DopaSEDiagnostics */, ); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE2026000000000000000012 /* Resources */ = { isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (CE2026000000000000000010 /* compatibility.json in Resources */, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE2026000000000000000011 /* Sources */ = { isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (CE202600000000000000000C /* DopaSEDiagnosticsApp.swift in Sources */, CE202600000000000000000D /* ContentView.swift in Sources */, CE202600000000000000000E /* DeviceProfile.swift in Sources */, CE202600000000000000000F /* Compatibility.swift in Sources */, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CE2026000000000000000017 /* projectDebug */ = { isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; TARGETED_DEVICE_FAMILY = "1"; SWIFT_VERSION = 5.0; DEBUG_INFORMATION_FORMAT = dwarf; GCC_OPTIMIZATION_LEVEL = 0; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		CE2026000000000000000018 /* projectRelease */ = { isa = XCBuildConfiguration; buildSettings = { ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; TARGETED_DEVICE_FAMILY = "1"; SWIFT_VERSION = 5.0; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; SWIFT_OPTIMIZATION_LEVEL = "-O"; }; name = Release; };
+		CE2026000000000000000019 /* targetDebug */ = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 3; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = DopaSE; INFOPLIST_KEY_LSRequiresIPhoneOS = YES; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.2.0; PRODUCT_BUNDLE_IDENTIFIER = org.dopase.se2020diagnostics; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1"; DEBUG_INFORMATION_FORMAT = dwarf; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+		CE202600000000000000001A /* targetRelease */ = { isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = NO; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 3; DEVELOPMENT_TEAM = ""; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = DopaSE; INFOPLIST_KEY_LSRequiresIPhoneOS = YES; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait; IPHONEOS_DEPLOYMENT_TARGET = 16.0; LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks"; MARKETING_VERSION = 1.2.0; PRODUCT_BUNDLE_IDENTIFIER = org.dopase.se2020diagnostics; PRODUCT_NAME = "$(TARGET_NAME)"; SDKROOT = iphoneos; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; SUPPORTS_MACCATALYST = NO; SWIFT_EMIT_LOC_STRINGS = YES; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = "1"; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; SWIFT_OPTIMIZATION_LEVEL = "-O"; }; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE2026000000000000000015 /* Build configuration list for PBXProject "DopaSEDiagnostics" */ = { isa = XCConfigurationList; buildConfigurations = (CE2026000000000000000017 /* Debug */, CE2026000000000000000018 /* Release */, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		CE2026000000000000000016 /* Build configuration list for PBXNativeTarget "DopaSEDiagnostics" */ = { isa = XCConfigurationList; buildConfigurations = (CE2026000000000000000019 /* Debug */, CE202600000000000000001A /* Release */, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+
+	};
+	rootObject = CE2026000000000000000001 /* Project object */;
+}

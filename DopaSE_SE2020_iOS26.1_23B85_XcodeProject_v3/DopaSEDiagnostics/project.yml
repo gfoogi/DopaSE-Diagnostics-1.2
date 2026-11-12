@@ -1,0 +1,33 @@
+name: DopaSEDiagnostics
+options:
+  minimumXcodeGenVersion: 2.35.0
+  deploymentTarget:
+    iOS: '16.0'
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    IPHONEOS_DEPLOYMENT_TARGET: '16.0'
+    TARGETED_DEVICE_FAMILY: '1'
+targets:
+  DopaSEDiagnostics:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+      - path: Resources/compatibility.json
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: org.dopase.se2020diagnostics
+        MARKETING_VERSION: 1.2.0
+        CURRENT_PROJECT_VERSION: 3
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: DopaSE
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        CODE_SIGN_STYLE: Automatic
+        SUPPORTS_MACCATALYST: NO
+        ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: NO
+    scheme:
+      testTargets: []
