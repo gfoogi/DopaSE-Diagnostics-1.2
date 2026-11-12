@@ -1,0 +1,32 @@
+{
+  "researchDate": "2026-11-12",
+  "targetMachine": "iPhone12,8",
+  "targetName": "iPhone SE (2nd generation, 2020)",
+  "targetChip": "A13 Bionic",
+  "explicitlySupportedBuilds": [
+    "23B5044l",
+    "23B5059e",
+    "23B5064e"
+  ],
+  "explicitlyUnsupportedBuilds": [
+    "23B85"
+  ],
+  "supportedVersionRanges": [
+    {
+      "min": "15.0",
+      "max": "18.7.1"
+    },
+    {
+      "min": "26.0",
+      "max": "26.0.1"
+    }
+  ],
+  "sources": [
+    "https://github.com/opa334/Dopamine",
+    "https://github.com/opa334/Dopamine/releases",
+    "https://github.com/opa334/Dopamine/blob/3.x/Application/Dopamine/Exploits/momentarius/Info.plist",
+    "https://ellekit.space/dopamine/",
+    "https://github.com/opa334/Dopamine/blob/3.x/.github/workflows/main.yml"
+  ],
+  "notice": "Advisory matrix for iPhone SE 2020 only. Verified metadata does not guarantee successful jailbreaking. This app never jailbreaks a device."
+}

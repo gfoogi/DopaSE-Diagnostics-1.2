@@ -1,0 +1,53 @@
+name: DopaSE — build unsigned iPhone IPA
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'SE2020_Research/**'
+      - 'DopaSEDiagnostics/**'
+      - 'tools/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/se2020-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check rules and Python tests
+        shell: bash
+        run: |
+          if [ -d SE2020_Research ]; then cd SE2020_Research; fi
+          python3 -m unittest discover -s tests -v
+  build:
+    needs: checks
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Swift compatibility engine
+        shell: bash
+        run: |
+          if [ -d SE2020_Research ]; then cd SE2020_Research; fi
+          bash scripts/test_swift_core.sh
+      - name: Validate native Xcode project
+        shell: bash
+        run: |
+          if [ -d SE2020_Research ]; then cd SE2020_Research; fi
+          plutil -lint DopaSEDiagnostics/DopaSEDiagnostics.xcodeproj/project.pbxproj
+          xcodebuild -list -project DopaSEDiagnostics/DopaSEDiagnostics.xcodeproj
+      - name: Compile iOS app and package unsigned IPA
+        shell: bash
+        run: |
+          if [ -d SE2020_Research ]; then cd SE2020_Research; fi
+          bash scripts/build_ios.sh
+      - name: Save compiled app as downloadable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DopaSE-iPhone-unsigned-IPA
+          path: |
+            artifacts/DopaSEDiagnostics-unsigned.ipa
+            SE2020_Research/artifacts/DopaSEDiagnostics-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 14
