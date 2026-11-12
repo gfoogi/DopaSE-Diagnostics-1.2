@@ -1,0 +1,96 @@
+name: Dopamine 3.x — source build (23B85 unsupported)
+on:
+  push:
+    paths:
+      - '.github/workflows/build-genuine-dopamine.yml'
+      - 'dopamine-fork/**'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dopamine-upstream-build
+  cancel-in-progress: true
+
+jobs:
+  build-dopamine:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout local project
+        uses: actions/checkout@v4
+
+      - name: Get pinned official source with all submodules
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --branch 3.x --single-branch https://github.com/opa334/Dopamine.git upstream-dopamine
+          cd upstream-dopamine
+          git checkout --detach 5b1d2c1c3bf54dd8e3641d29c60cd3a0c13cde88
+          git submodule update --init --recursive
+          test "$(git rev-parse HEAD)" = "5b1d2c1c3bf54dd8e3641d29c60cd3a0c13cde88"
+          echo "::warning::Dopamine 3.0.13 does NOT support final iOS 26.1 23B85 on A13."
+
+      - name: Xcode Setup
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Install Procursus
+        uses: dhinakg/procursus-action@main
+        with:
+          packages: ldid findutils sed coreutils make
+
+      - name: Install GNU Make and libarchive
+        run: |
+          brew install make libarchive
+          echo "PATH=$(brew --prefix make)/libexec/gnubin:$PATH" >> "$GITHUB_ENV"
+
+      - name: Install Theos and iPhoneOS SDK
+        shell: bash
+        working-directory: upstream-dopamine
+        run: |
+          set -euo pipefail
+          export BASEDIR="$(pwd)"
+          export THEOS="$BASEDIR/theos"
+          mkdir -p "$THEOS"
+          curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos > install-theos.sh
+          gsed -E '/^\s*get_theos\s*$/,+1 s/^(\s*)(get_sdks)\s*$/\1mkdir -p $THEOS\/sdks\n\1touch $THEOS\/sdks\/sdk\n\1\2/g' -i install-theos.sh
+          bash install-theos.sh
+          curl -fL https://github.com/theos/sdks/releases/latest/download/iPhoneOS16.5.sdk.tar.xz --output "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
+          gunzip "$THEOS/sdks/iPhoneOS16.5.sdk.tar.xz"
+          tar -xf "$THEOS/sdks/iPhoneOS16.5.sdk.tar" -C "$THEOS/sdks"
+          rm -f "$THEOS/sdks/iPhoneOS16.5.sdk.tar"
+
+      - name: Install trustcache build helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone https://github.com/CRKatri/trustcache.git trustcache-build
+          cd trustcache-build
+          export CFLAGS="-I$(brew --prefix openssl)/include -arch arm64"
+          export LDFLAGS="-L$(brew --prefix openssl)/lib -arch arm64"
+          gmake -j"$(sysctl -n hw.logicalcpu)" OPENSSL=1
+          sudo cp trustcache /opt/procursus/bin/
+
+      - name: Download official bootstrap resources
+        shell: bash
+        working-directory: upstream-dopamine/Application/Dopamine/Resources
+        run: ./download_bootstraps.sh
+
+      - name: Build original Dopamine (no 23B85 exploit added)
+        shell: bash
+        working-directory: upstream-dopamine
+        run: |
+          set -euo pipefail
+          export BASEDIR="$(pwd)"
+          export THEOS="$BASEDIR/theos"
+          gmake -j"$(sysctl -n hw.logicalcpu)" NIGHTLY=1
+          test -s Application/Dopamine.ipa
+
+      - name: Save artifact (unsupported on target build)
+        uses: actions/upload-artifact@v4
+        with:
+          name: Original-Dopamine-3_0_13-NOT-for-23B85
+          path: upstream-dopamine/Application/Dopamine.ipa
+          if-no-files-found: error
+          retention-days: 7
